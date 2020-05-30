@@ -11,8 +11,8 @@ function resumesend(){
   var comp = ss.getRange(Lrow, 2).getValue();
   Logger.log(comp);
   
-  var dest = DriveApp.getFolderById('1XtHgE47-ASOJkAVJjiRVAc0L7Osb-hGg');
-  var coverletter = DriveApp.getFileById('1FY12RpYqM3InImvYEA9tNac9qQFzgtbcW1PS3hCZLp0').makeCopy().getId();
+  var dest = DriveApp.getFolderById('//DESTINATION FOLDER ID');
+  var coverletter = DriveApp.getFileById('COVERLETTER ID ').makeCopy().getId();
   var sampleDoc = DocumentApp.openById(coverletter).getBody();
   
   sampleDoc.replaceText('{{company}}', comp);
@@ -21,7 +21,7 @@ function resumesend(){
   sampleDoc.replaceText('{{HRname}}',web);
   
   var save = DocumentApp.openById(coverletter).saveAndClose();
-  var resume = DriveApp.getFileById('1KtqpdFw9D2MtAEi5iLjhZyPj_-1ReYs1Cb43Iv3Fz1M');
+  var resume = DriveApp.getFileById('RESUME ID');
   
   var blob = DocumentApp.openById(coverletter).getAs('application/pdf');
   var newFile = dest.createFile(blob.setName(comp +'.pdf'));
